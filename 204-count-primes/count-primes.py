@@ -1,0 +1,11 @@
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        if n<2:
+            return 0
+        isPrime=[True]*n
+        isPrime[0]=isPrime[1]=False
+        for p in range(2,int(n**0.5)+1):
+            if isPrime[p]:
+                for i in range(p*p,n,p):
+                    isPrime[i]=False
+        return sum(isPrime)
