@@ -1,0 +1,9 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n <= 3: return n
+        prev1,prev2,cur =3, 2,0
+        for _ in range(3, n):
+            cur = prev1 + prev2
+            prev2 = prev1
+            prev1 = cur
+        return cur
